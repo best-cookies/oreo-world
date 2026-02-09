@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oreo World Kazakhstan | Официальный магазин</title>
+
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- СТИЛИ (CSS) --- */
+        :root {
+            --oreo-blue: #002D72;
+            --oreo-light-blue: #0056b3;
+            --white: #ffffff;
+            --success-green: #28a745;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif; /* Применили новый шрифт */
+            background-color: #f4f7f6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: var(--oreo-blue);
+            color: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo { font-weight: bold; font-size: 22px; letter-spacing: 1px; }
+
+        .nav-btn {
+            background-color: var(--white);
+            color: var(--oreo-blue);
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .nav-btn:hover {
+            background-color: #eef4ff;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 45, 114, 0.6), rgba(0, 45, 114, 0.6)), 
+                        url('img/banner.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .hero h1 { font-size: 48px; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 20px; }
+
+        h2 { text-align: center; color: var(--oreo-blue); margin-bottom: 30px; }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .product-table th { background: var(--oreo-blue); color: var(--white); padding: 15px; text-align: left; }
+        .product-table td { padding: 15px; border-bottom: 1px solid #eee; vertical-align: middle; }
+
+        .product-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+        .product-img:hover { transform: scale(1.1); }
+
+        .price {
+            font-weight: bold;
+            color: var(--oreo-blue);
+            cursor: pointer;
+            background: #eef4ff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+            display: inline-block;
+            min-width: 90px;
+        }
+
+        /* Виджет корзины */
+        #cart-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--white);
+            color: var(--oreo-blue);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: none;
+            width: 260px;
+            border: 2px solid var(--oreo-blue);
+            z-index: 2000;
+        }
+
+        .btn-order {
+            background: var(--oreo-blue);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn-clear {
+            background: none;
+            border: none;
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 10px;
+            text-decoration: underline;
+            padding: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        footer { background: #001a44; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">OREO WORLD KZ</div>
+        <div class="contacts">Алматы • Астана | +7 (707) 123-45-67</div>
+        <a href="#catalog" class="nav-btn">КАТАЛОГ</a>
+    </header>
+
+    <section class="hero">
+        <h1>Мир Oreo в Казахстане! 🍪</h1>
+        <p>Лучшие вкусы с доставкой прямо к вашему молоку.</p>
+    </section>
+
+    <div class="container" id="catalog">
+        <h2>Каталог продукции</h2>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Фото</th>
+                    <th>Название</th>
+                    <th>Описание</th>
+                    <th>Цена</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="img/oreo_classic.jpeg" class="product-img" alt="Oreo Classic"></td>
+                    <td><strong>Oreo Classic</strong></td>
+                    <td>Классика (154г)</td>
+                    <td><div class="price" onclick="addToCart('Oreo Classic', 850, this)">850 ₸</div></td>
+                </tr>
+                <tr>
+                    <td><img src="img/oreo_gold.jpeg" class="product-img" alt="Oreo Golden"></td>
+                    <td><strong>Oreo Golden</strong></td>
+                    <td>Ванильное печенье</td>
+                    <td><div class="price" onclick="addToCart('Oreo Golden', 950, this)">950 ₸</div></td>
+                </tr>
+                <tr>
+                    <td><img src="img/oreo_dubble.jpeg" class="product-img" alt="Double Stuf"></td>
+                    <td><strong>Double Stuf</strong></td>
+                    <td>Двойная начинка</td>
+                    <td><div class="price" onclick="addToCart('Double Stuf', 1200, this)">1 200 ₸</div></td>
+                </tr>
+                <tr>
+                    <td><img src="img/oreo_b.jpeg" class="product-img" alt="Birthday Party"></td>
+                    <td><strong>Birthday Party</strong></td>
+                    <td>Вкус праздничного торта</td>
+                    <td><div class="price" onclick="addToCart('Birthday Party', 1500, this)">1 500 ₸</div></td>
+                </tr>
+                <tr>
+                    <td><img src="img/oreo_mat.jpeg" class="product-img" alt="Matcha"></td>
+                    <td><strong>Oreo Matcha</strong></td>
+                    <td>Зеленый чай Маття</td>
+                    <td><div class="price" onclick="addToCart('Oreo Matcha', 1800, this)">1 800 ₸</div></td>
+                </tr>
+                <tr>
+                    <td><img src="img/oreo_red.jpeg" class="product-img" alt="Red Velvet"></td>
+                    <td><strong>Red Velvet</strong></td>
+                    <td>Красный бархат</td>
+                    <td><div class="price" onclick="addToCart('Red Velvet', 1600, this)">1 600 ₸</div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>© 2026 Oreo World Kazakhstan. Склад: Алматы / Астана</p>
+    </footer>
+
+    <div id="cart-widget">
+        <h4 style="margin: 0 0 10px 0;">🛒 Ваш заказ:</h4>
+        <div id="cart-items" style="max-height: 150px; overflow-y: auto; font-size: 14px; margin-bottom: 10px;"></div>
+        <div style="border-top: 1px solid #ddd; padding-top: 10px;">
+            <strong>Итого: <span id="total-price">0</span> ₸</strong>
+        </div>
+        
+        <button class="btn-order" onclick="alert('Заказ принят! Мы скоро свяжемся с вами.')">ОФОРМИТЬ ЗАКАЗ</button>
+        <center><button class="btn-clear" onclick="clearCart()">Очистить корзину</button></center>
+    </div>
+
+    <script>
+        let total = 0;
+
+        function addToCart(name, price, element) {
+            total += price;
+            const widget = document.getElementById('cart-widget');
+            widget.style.display = 'block';
+            
+            document.getElementById('total-price').innerText = total.toLocaleString();
+            
+            // Эффект на кнопке
+            const oldText = element.innerText;
+            element.innerText = "В корзине! ✅";
+            element.style.background = "var(--success-green)";
+            element.style.color = "white";
+            
+            setTimeout(() => {
+                element.innerText = oldText;
+                element.style.background = "#eef4ff";
+                element.style.color = "var(--oreo-blue)";
+            }, 800);
+
+            const cartItems = document.getElementById('cart-items');
+            const item = document.createElement('div');
+            item.style.padding = '3px 0';
+            item.style.borderBottom = '1px solid #f0f0f0';
+            item.innerText = "🔹 " + name + " — " + price + " ₸";
+            cartItems.appendChild(item);
+        }
+
+        function clearCart() {
+            if (confirm("Вы уверены, что хотите очистить корзину?")) {
+                total = 0;
+                document.getElementById('total-price').innerText = "0";
+                document.getElementById('cart-items').innerHTML = "";
+                document.getElementById('cart-widget').style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
